@@ -1,0 +1,151 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link id="theme" rel="stylesheet" type="text/css" href="calculator-light.css" />
+    <style>
+        .switch {
+            position: relative;
+            right: 45%;
+
+            display: inline-block;
+            width: 40px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #505558;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(16px);
+            -ms-transform: translateX(16px);
+            transform: translateX(16px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="calculator">
+            <div>
+            <label class="switch">
+                <input type="checkbox" onchange='handleChange(this);'>
+                <span class="slider round"></span>
+            </label>
+        </div>
+            <div class="title">Calculator</div>
+            <!-- the input -->
+            <input class="input" type="text" name="display" id="display" disabled>
+
+            <!-- the buttons -->
+            <div class="calculator-buttons">
+                <button class="calc-button" onclick="display.value += '+'">&plus;</button>
+                <button class="calc-button" onclick="display.value += '/'">/</button>
+
+
+
+                <button class="calc-button" onclick="display.value += '-'">−</button>
+                <button class="calc-button" onclick="display.value += '*'">×</button>
+
+                <button class="calc-button" onclick="display.value += '9'">9</button>
+                <button class="calc-button" onclick="display.value += '8'">8</button>
+                <button class="calc-button" onclick="display.value += '7'">7</button>
+
+
+
+                <button class="calc-button" onclick="display.value += '6'">6</button>
+                <button class="calc-button" onclick="display.value += '5'">5</button>
+                <button class="calc-button" onclick="display.value += '4'">4</button>
+
+                <button class="calc-button" onclick="display.value += '3'">3</button>
+                <button class="calc-button" onclick="display.value += '2'">2</button>
+
+
+
+                <button class="calc-button" onclick="display.value += '1'">1</button>
+                <button class="calc-button" onclick="display.value += '0'">0</button>
+                <button class="calc-button" onclick="display.value = ''">C</button>
+                <button class="calc-button" onclick="equals()">&equals;</button>
+
+            </div>
+            <a href="https://harshdeshmukh.github.io"><strong>Developed BY <i>Harshvardhan</i></strong> </a>
+        </div>
+
+    </div>
+</body>
+<script>
+    function equals() {
+        let res = eval(display.value);
+        if (typeof res !== "undefined") {
+
+            document.getElementById("display").value = res;
+
+        } else {
+            let res = ""
+            document.getElementById("display").value = res;
+        }
+
+    }
+
+    function handleChange(checkbox) {
+    if(checkbox.checked == true){
+        const themeStylesheet = document.getElementById('theme');
+        themeStylesheet.href = 'calculator-dark.css';
+    }else{
+        const themeStylesheet = document.getElementById('theme');
+        themeStylesheet.href = 'calculator-light.css';
+   }
+}
+</script>
+
+</html>
