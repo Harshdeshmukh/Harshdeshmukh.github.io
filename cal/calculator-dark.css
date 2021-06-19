@@ -96,3 +96,19 @@ button:hover {
     background: #c5c9ce;
     box-shadow: 6px 6px 6px #e2dfdf,6px -6px -6px #b4b0b0;
 }
+@media(max-width:480px){
+    
+        .calculator {
+            position: relative;
+            width: 350px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 20px;
+            padding: 40px;
+            box-sizing: border-box;
+            background: #222425;
+            box-shadow: 14px 14px 20px #000000, -14px -14px 20px #4b5155;
+        }
+    
+}
