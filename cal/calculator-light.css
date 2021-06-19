@@ -102,3 +102,18 @@ button:hover {
     background: #c5c9ce;
     box-shadow: 6px 6px 6px #b4b0b0, -6px -6px 6px #ffffff;
 }
+
+@media(max-width:480px){
+    .calculator {
+        position: relative;
+        width: 350px;
+        height: auto;
+        border-radius: 20px;
+        padding: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        background: #ecf0f3;
+        box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+    }
+}
