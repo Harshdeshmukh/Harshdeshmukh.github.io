@@ -39,7 +39,7 @@ export const myProjects = [
             {id: 1, name: 'React.js', path: '/assets/reactjs.png'},
             {id: 2, name: 'Django', path: '/assets/django.png'},
             {id: 3, name: 'Bootstrap', path: '/assets/bootstrap.png'},
-            {id: 4, name: 'Firebase', path: '/assets/firebase.png'},
+            {id: 4, name: 'Firebase', path: '/assets/Firebase.png'},
         ],
     },
     {
