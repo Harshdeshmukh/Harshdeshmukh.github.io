@@ -155,8 +155,26 @@ body {
 
     /*  footer */
     .social-icon {
-        @apply w-12 h-12 rounded-full flex justify-center items-center bg-black-300 border border-black-200;
+        @apply w-12 h-12 rounded-full flex justify-center items-center border transition-all duration-300;
     }
+    
+    .social-icon a {
+        @apply flex justify-center items-center w-full h-full;
+    }
+    
+    .social-icon img {
+        @apply w-6 h-6;
+    }
+    
+    .social-icon.bg-white {
+        @apply border-gray-300;
+    }
+    
+    .social-icon:hover {
+        @apply scale-110 shadow-lg;
+    }
+    
+    
 }
 
 .waving-hand {
