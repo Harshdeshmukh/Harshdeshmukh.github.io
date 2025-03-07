@@ -52,7 +52,7 @@ const About = () => {
                         <img src="/assets/grid1.png" alt="Profile"
                              className="w-full h-auto max-h-[275px] mx-auto object-contain"/>
                         <div>
-                            <p className="grid-headtext">🚀 Hi, I'm Harshvardhan</p>
+                            <p className="grid-headtext">🚀 Hi, I&apos;m Harshvardhan</p>
                             <p className="grid-subtext">
                                 A <strong>Full-Stack Developer</strong> with expertise in React.js, Django, Ruby on
                                 Rails, and Express.js.
@@ -137,9 +137,9 @@ const About = () => {
                         <div>
                             <p className="grid-headtext">❤️ Passion for Innovation</p>
                             <p className="grid-subtext">
-                                I thrive at the **intersection of technology and impact**.
-                                From architecting **AI-powered solutions** to designing **real-time collaborative
-                                tools**,
+                                I thrive at the intersection of technology and impact.
+                                From architecting AI-powered solutions to designing real-time collaborative
+                                tools,
                                 I build products that scale, perform, and enhance user experiences.
                             </p>
                         </div>
@@ -152,7 +152,7 @@ const About = () => {
                         <img src="/assets/grid4.png" alt="Contact"
                              className="w-full h-auto max-h-[276px] mx-auto object-contain"/>
                         <div className="space-y-2">
-                            <p className="grid-headtext text-center">📬 Let's Talk</p>
+                            <p className="grid-headtext text-center">📬 Let&apos;s Talk</p>
                             <div
                                 className="copy-container flex items-center justify-between gap-3 p-2 bg-gray-800 rounded-lg cursor-pointer w-full max-w-[300px] mx-auto overflow-hidden"
                                 onClick={handleCopy}
