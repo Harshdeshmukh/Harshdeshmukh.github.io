@@ -9,8 +9,12 @@ const Contact = () => {
     const { VITE_EMAILJS_SERVICE_ID: SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID: TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY: PUBLIC_KEY } = import.meta.env;
 
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value.trim() });
-    };
+        const { name, value } = e.target;
+        setForm(prevForm => ({
+          ...prevForm,
+          [name]: value
+        }));
+      };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,30 +46,35 @@ const Contact = () => {
 
     return (
         <section className="c-space my-20" id="contact">
-            <div className="relative min-h-screen flex items-center justify-center flex-col">
-                <img src="/assets/terminal.png" alt="terminal background" className="absolute min-h-screen inset-0" />
-                <div className="contact-container w-full h-full text-left">
-                    <h3 className="head-text text-4xl font-bold text-white">
+            <div 
+                className="relative w-full min-h-screen flex items-center justify-center"
+                style={{
+                    backgroundImage: "url('/assets/terminal.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat"
+                }}
+            >
+                <div className="contact-container w-full max-w-2xl mx-auto z-10 px-4 sm:px-8 py-12 sm:py-16">
+                    <h3 className="head-text text-3xl sm:text-4xl font-bold text-white">
                         Looking for a Skilled Developer?
                     </h3>
-                    <p className="text-lg mt-3 text-gray-300">
-                        I build scalable, high-performance web apps. Let’s connect!
+                    <p className="text-base sm:text-lg mt-3 text-gray-300">
+                        I build scalable, high-performance web apps. Let's connect!
                     </p>
-
-
 
                     {/* Alert Box */}
                     {alert.message && (
                         <div className={`fixed top-12 z-50 left-1/2 transform -translate-x-1/2 px-6 py-3 rounded-lg text-white transition-all duration-300 shadow-lg
-                            ${alert.type === "success" ? "bg-green-600" : "bg-red-600"}`}>
+                            ${alert.type === "success" ? "bg-green-600" : "bg-red-600"} w-5/6 sm:w-auto text-center`}>
                             {alert.message}
                         </div>
                     )}
 
-                    <form onSubmit={handleSubmit} className="flex mt-12 flex-col space-y-7">
+                    <form onSubmit={handleSubmit} className="flex mt-8 sm:mt-12 flex-col space-y-5 sm:space-y-7 w-full">
                         {["name", "email", "message"].map((field) => (
-                            <label key={field} className="space-y-3">
-                                <span className="field-label">
+                            <label key={field} className="space-y-2 sm:space-y-3 block w-full">
+                                <span className="field-label text-sm sm:text-base">
                                     {field === "message" ? "Your Message" : field.replace(/^\w/, (c) => c.toUpperCase())}
                                 </span>
                                 {field === "message" ? (
@@ -76,7 +85,7 @@ const Contact = () => {
                                         value={form[field]}
                                         onChange={handleChange}
                                         placeholder="Hi..."
-                                        className="field-input"
+                                        className="field-input w-full text-sm sm:text-base"
                                     />
                                 ) : (
                                     <input
@@ -86,16 +95,22 @@ const Contact = () => {
                                         value={form[field]}
                                         onChange={handleChange}
                                         placeholder={field === "email" ? "john.doe@gmail.com" : "John Doe"}
-                                        className="field-input"
+                                        className="field-input w-full text-sm sm:text-base"
                                     />
                                 )}
                             </label>
                         ))}
 
-                        <button type="submit" className="field-btn" disabled={loading}>
-                            {loading ? "Sending..." : "Send Message"}
-                            <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
-                        </button>
+                        <div className="pt-4 sm:pt-6">
+                            <button 
+                                type="submit" 
+                                className="field-btn flex items-center justify-center" 
+                                disabled={loading}
+                            >
+                                <span className="mr-2">{loading ? "Sending..." : "Send Message"}</span>
+                                <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow h-4 w-4 sm:h-5 sm:w-5" />
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>

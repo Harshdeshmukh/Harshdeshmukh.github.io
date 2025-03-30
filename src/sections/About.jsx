@@ -38,7 +38,7 @@ const About = () => {
     };
 
     return (
-        <section className="c-space my-20" id="about">
+        <section className="c-space my-20 px-4 sm:px-6 md:px-8" id="about">
             <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 md:gap-8 h-full">
                 
                 {/* 🚀 Personal Introduction */}
@@ -101,8 +101,8 @@ const About = () => {
                             />
                         </div>
                         <div>
-                            <p className="grid-headtext">🌍 Pune, India 🇮🇳</p>
-                            <p className="grid-subtext">Available for global & remote opportunities.</p>
+                            <p className="grid-headtext text-center md:text-left">🌍 Pune, India 🇮🇳</p>
+                            <p className="grid-subtext text-center md:text-left">Available for global & remote opportunities.</p>
                             <div className="flex justify-center md:justify-start mt-4">
                                 <a href="#contact">
                                     <Button name="Let's Connect" isBeam containerClass="w-full" />
@@ -116,7 +116,7 @@ const About = () => {
                 <InfoCard
                     imgSrc="/assets/grid3.png"
                     title="❤️ Passion for Innovation"
-                    className="col-span-2"
+                    className="col-span-1 md:col-span-2"
                     text="I thrive at the intersection of technology and impact. From architecting AI-powered solutions 
                     to designing real-time collaborative tools, I build products that scale, perform, and enhance user experiences."
                 />
@@ -128,7 +128,7 @@ const About = () => {
                         <div className="space-y-2">
                             <p className="grid-headtext text-center">📬 Let's Talk</p>
                             <button
-                                className="flex items-center justify-between gap-3 p-2 bg-gray-800 rounded-lg w-full max-w-[300px] mx-auto text-white text-lg font-medium"
+                                className="flex items-center justify-between gap-3 p-2 bg-gray-800 rounded-lg w-full max-w-[300px] mx-auto text-white text-lg font-medium overflow-hidden"
                                 onClick={handleCopy}
                             >
                                 <span className="truncate">{email}</span>
@@ -148,8 +148,8 @@ const InfoCard = ({ imgSrc, title, text, className="col-span-1" }) => (
         <div className="grid-container h-full">
             <img src={imgSrc} alt={title} className="w-full h-auto max-h-[275px] mx-auto object-contain" />
             <div>
-                <p className="grid-headtext">{title}</p>
-                <p className="grid-subtext">{text}</p>
+                <p className="grid-headtext text-center md:text-left">{title}</p>
+                <p className="grid-subtext text-center md:text-left">{text}</p>
             </div>
         </div>
     </div>

@@ -84,16 +84,27 @@ export const myProjects = [
     },
 ];
 
-export const calculateSizes = (isSmall, isMobile, isTablet) => {
+export const calculateSizes = (isSmall, isMobile, isTablet, isLargeScreen) => {
     return {
         deskScale: isSmall ? 0.04 : isMobile ? 0.05 : 0.065,
         deskPosition: isMobile ? [0.5, -2.7, 0] : [0.25, -5.5, 0],
-        cubePosition: isSmall ? [2.7, -5, 0] : isMobile ? [5, -5, 0] : isTablet ? [5, -5, 0] : [9, -5.5, 0],
-        reactLogoPosition: isSmall ? [3, 4, 0] : isMobile ? [5, 4, 0] : isTablet ? [5, 4, 0] : [12, 3, 0],
-        ringPosition: isSmall ? [-5, 7, 0] : isMobile ? [-10, 10, 0] : isTablet ? [-12, 10, 0] : [-24, 10, 0],
-        targetPosition: isSmall ? [-5, -10, -10] : isMobile ? [-9, -10, -10] : isTablet ? [-11, -7, -10] : [-13, -13, -10],
+        cubePosition: isSmall ? [2.7, -5, 0] : isMobile || isTablet ? [5, -5, 0] : [9, -5.5, 0],
+        reactLogoPosition: isSmall ? [3, 4, 0]
+            : isMobile || isTablet ? [5, 4, 0]
+                : isLargeScreen ? [10, 3, 0]
+                    : [12, 3, 0],
+        ringPosition: isSmall ? [-5, 7, 0]
+            : isMobile ? [-10, 10, 0]
+                : isTablet ? [-12, 10, 0]
+                    : isLargeScreen ? [-21, 8, 0]
+                        : [-24, 10, 0],
+        targetPosition: isSmall ? [-5, -10, -10]
+            : isMobile ? [-9, -10, -10]
+                : isTablet ? [-11, -7, -10]
+                    : [-13, -13, -10],
     };
 };
+
 
 export const workExperiences = [
     {
@@ -101,7 +112,13 @@ export const workExperiences = [
         name: 'Ksolves India Ltd',
         pos: 'Software Engineer',
         duration: 'Sep 2022 - Present',
-        title: "Developed and optimized complex web applications using React.js, Django, and Ruby on Rails. Led frontend development for admin portals, user management systems, and AI-powered support tools. Integrated payment gateways, real-time messaging, and push notifications. Built scalable RESTful APIs and optimized application performance.",
+        title: [
+            "Developed and optimized complex web applications using React.js, Django, and Ruby on Rails.",
+            "Led frontend development for admin portals, user management systems, and AI-powered support tools.",
+            "Integrated payment gateways, real-time messaging, and push notifications for seamless user experience.",
+            "Built scalable RESTful APIs and optimized application performance, reducing load times by 30%.",
+            "Collaborated with cross-functional teams to enhance product scalability and maintainability."
+        ],
         icon: '/assets/ksolves.png',
         animation: 'victory',
     },
